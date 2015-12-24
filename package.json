@@ -1,0 +1,20 @@
+{
+  "name": "rtsupport",
+  "version": "1.0.0",
+  "description": "Realtime support frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikita Gridinskiy",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-loader": "^6.2.0",
+    "webpack": "^1.12.9"
+  },
+  "dependencies": {
+    "babel": "^6.3.26",
+    "babel-core": "^6.3.26",
+    "react": "^0.14.3"
+  }
+}
