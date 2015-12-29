@@ -6,9 +6,12 @@ import ChannelList from './ChannelList.jsx';
 class ChannelSection extends Component {
   render() {
     return (
-      <div>
-        <ChannelList {... this.props}/>
-        <ChannelForm {... this.props}/>
+      <div className='panel panel-default'>
+        <div className='panel-heading'><h3 className='panel-title'>Channels</h3></div>
+        <div className='panel-body'>
+          <ChannelList {... this.props}/>
+          <ChannelForm {... this.props}/>
+        </div>
       </div>
     );
   }
@@ -17,7 +20,8 @@ class ChannelSection extends Component {
 ChannelSection.propTypes = {
   channels: React.PropTypes.array.isRequired,
   setChannel: React.PropTypes.func.isRequired,
-  addChannel: React.PropTypes.func.isRequired
+  addChannel: React.PropTypes.func.isRequired,
+  activeChannel: React.PropTypes.object.isRequired
 }
 
 export default ChannelSection;

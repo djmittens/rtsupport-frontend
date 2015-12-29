@@ -6,12 +6,13 @@ class App extends Component {
     super(props);
     this.state = {
       channels: props.channels || [],
-      activeChannel: props.activeChannel || ''
+      activeChannel: props.activeChannel || {}
     };
   }
 
   setChannel(channel) {
     console.log("Setting A channel");
+    this.state.activeChannelz
     this.setState({activeChannel: channel});
   }
 
@@ -27,7 +28,7 @@ class App extends Component {
     return (
       <div>
         <ChannelSection
-          channels= {this.state.channels}
+          {... this.state}
           setChannel= {this.setChannel.bind(this)}
           addChannel= {this.addChannel.bind(this)}
         />

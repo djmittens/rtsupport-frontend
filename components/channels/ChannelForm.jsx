@@ -11,12 +11,14 @@ class ChannelForm extends Component {
 
   render () {
     return (
-      <form onSubmit = {this.onSubmit.bind(this)}>
-        <input
-          type= 'text'
-          ref= 'channel'
-        />
-      </form>
+      <div>
+        <form onSubmit = {this.onSubmit.bind(this)}>
+          <div className='input-group'>
+            <span className='input-group-addon' id='channelHashAddon'>#</span>
+            <input type= 'text' ref= 'channel' className='form-control' placeholder='New Channel' aria-describedby='channelHashAddon' />
+          </div>
+        </form>
+      </div>
     );
   }
 }
