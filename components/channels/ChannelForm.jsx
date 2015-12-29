@@ -14,8 +14,8 @@ class ChannelForm extends Component {
       <div>
         <form onSubmit = {this.onSubmit.bind(this)}>
           <div className='input-group'>
-            <span className='input-group-addon' id='channelHashAddon'>#</span>
-            <input type= 'text' ref= 'channel' className='form-control' placeholder='New Channel' aria-describedby='channelHashAddon' />
+            <span className='input-group-addon'>#</span>
+            <input type= 'text' ref= 'channel' className='form-control' placeholder='New Channel'  />
           </div>
         </form>
       </div>

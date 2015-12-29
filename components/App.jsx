@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import ChannelSection from './channels/ChannelSection.jsx';
+import UserSection from './users/UserSection.jsx';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    const activeUser = {name: 'Anonymous'};
+
     this.state = {
       channels: props.channels || [],
-      activeChannel: props.activeChannel || {}
+      activeChannel: props.activeChannel || {},
+      users: props.users || [activeUser],
+      activeUser: activeUser
     };
   }
 
@@ -21,17 +26,31 @@ class App extends Component {
     let channels = this.state.channels;
     channels.push({name: channelName});
 
-    this.setState({channels: channels});
+    this.setState({channels});
+  }
+
+  setUserName(userName) {
+    const {activeUser} = this.state;
+    activeUser.name = userName;
+    this.setState({activeUser});
   }
 
   render() {
     return (
       <div>
-        <ChannelSection
-          {... this.state}
-          setChannel= {this.setChannel.bind(this)}
-          addChannel= {this.addChannel.bind(this)}
-        />
+        <div className='col-md-3'>
+          <ChannelSection
+            {...this.state}
+            setChannel= {this.setChannel.bind(this)}
+            addChannel= {this.addChannel.bind(this)}
+          />
+          <UserSection
+            {...this.state}
+            setUserName={this.setUserName.bind(this)}
+          />
+        </div>
+        <div className='col-md-8'>
+        </div>
       </div>
     );
   }
