@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 
-class Channel extends React.Component {
-
+class Channel extends Component {
   onClick(e) {
     e.preventDefault();
     const {setChannel, channel} = this.props;
-    setChannel(channel);
+    this.props.setChannel(channel);
   }
 
   render() {

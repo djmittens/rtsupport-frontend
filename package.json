@@ -9,12 +9,15 @@
   "author": "Nikita Gridinskiy",
   "license": "ISC",
   "devDependencies": {
-    "babel-loader": "^6.2.0",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "babel-preset-es2015": "^6.3.13"
   },
   "dependencies": {
     "babel": "^6.3.26",
     "babel-core": "^6.3.26",
-    "react": "^0.14.3"
+    "babel-loader": "^6.2.0",
+    "babel-preset-react": "^6.3.13",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
   }
 }
