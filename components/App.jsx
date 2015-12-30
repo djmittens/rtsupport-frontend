@@ -1,18 +1,12 @@
 import React, {Component} from 'react';
 import ChannelSection from './channels/ChannelSection.jsx';
 import UserSection from './users/UserSection.jsx';
+import MessageSection from './messages/MessageSection.jsx';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    const activeUser = {name: 'Anonymous'};
-
-    this.state = {
-      channels: props.channels || [],
-      activeChannel: props.activeChannel || {},
-      users: props.users || [activeUser],
-      activeUser: activeUser
-    };
+    this.state = this.props;
   }
 
   setChannel(channel) {
@@ -24,7 +18,7 @@ class App extends Component {
   addChannel(channelName) {
     console.log("Adding A channel");
     let channels = this.state.channels;
-    channels.push({name: channelName});
+    channels.push({id: channelName, name: channelName});
 
     this.setState({channels});
   }
@@ -35,10 +29,14 @@ class App extends Component {
     this.setState({activeUser});
   }
 
+  submitMessage(messageText) {
+    console.log("Sending a message " + messageText);
+  }
+
   render() {
     return (
-      <div>
-        <div className='col-md-3'>
+      <div className='app'>
+        <div className='sidebar'>
           <ChannelSection
             {...this.state}
             setChannel= {this.setChannel.bind(this)}
@@ -49,16 +47,21 @@ class App extends Component {
             setUserName={this.setUserName.bind(this)}
           />
         </div>
-        <div className='col-md-8'>
-        </div>
+        <MessageSection
+          {...this.state}
+          submitMessage={this.submitMessage.bind(this)}
+        />
       </div>
     );
   }
 }
 
 App.propTypes = {
-  channels: React.PropTypes.array,
-  activeChannel: React.PropTypes.array
+  channels: React.PropTypes.array.isRequired,
+  messages: React.PropTypes.array.isRequired,
+  users: React.PropTypes.array.isRequired,
+  activeChannel: React.PropTypes.object.isRequired,
+  activeUser: React.PropTypes.object.isRequired
 }
 
 export default App;

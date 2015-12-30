@@ -8,7 +8,7 @@ class ChannelList extends Component {
       <ul className='list-group'> {
       this.props.channels.map( chan => {
         return <Channel
-          key = {chan.name}
+          key = {chan.id}
           {... this.props}
           channel = {chan}
         />
